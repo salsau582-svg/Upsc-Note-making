@@ -1,0 +1,8 @@
+{
+  "name": "Sankalan — UPSC Cornell Study Notebook",
+  "description": "A distraction-free digital Cornell note-taking, comparison table, spaced-revision, and A4 PDF printing workspace built for UPSC Civil Services aspirants.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

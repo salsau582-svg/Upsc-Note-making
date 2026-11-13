@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: "Source Serif 4", Georgia, Cambria, serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #1e293b;
+    background-color: #f8fafc;
+  }
+}
+
+.font-academic-serif {
+  font-family: var(--font-serif);
+}
+
+.font-academic-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inline UPSC Importance Highlights inside contentEditable */
+mark[data-marker="very-important"] {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  border-bottom: 1.5px solid #ef4444;
+}
+
+mark[data-marker="important"] {
+  background-color: #ffedd5;
+  color: #7c2d12;
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  border-bottom: 1.5px solid #f97316;
+}
+
+mark[data-marker="prelims-fact"] {
+  background-color: #fef9c3;
+  color: #713f12;
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  border-bottom: 1.5px solid #eab308;
+}
+
+mark[data-marker="mains-value"] {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  border-bottom: 1.5px solid #3b82f6;
+}
+
+mark[data-marker="conceptual"] {
+  background-color: #dcfce7;
+  color: #14532d;
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  border-bottom: 1.5px solid #22c55e;
+}
+
+mark[data-marker="revision-required"] {
+  background-color: #f3e8ff;
+  color: #581c87;
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+  border-bottom: 1.5px solid #a855f7;
+}
+
+/* Search match highlight */
+.search-hit {
+  background-color: #fde68a;
+  outline: 1px solid #d97706;
+}
+
+/* Clean custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print output container hidden on screen */
+#print-output-root {
+  display: none;
+}
+
+/* Dedicated A4 Academic Print Stylesheet */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 14mm 16mm 14mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.48 !important;
+  }
+
+  #app-shell,
+  .no-print {
+    display: none !important;
+  }
+
+  #print-output-root {
+    display: block !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  .print-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-heading {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+    word-wrap: break-word !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 5px 7px !important;
+    vertical-align: top !important;
+    font-size: 9.5pt !important;
+  }
+
+  .print-bw mark[data-marker] {
+    background-color: transparent !important;
+    color: #111827 !important;
+    border-bottom: 1.5px solid #111827 !important;
+    font-weight: 600 !important;
+  }
+
+  .print-bw .print-marker-box {
+    background-color: #ffffff !important;
+    border-color: #475569 !important;
+    color: #111827 !important;
+  }
+}
